@@ -7,6 +7,7 @@ require_relative 'lib/compressor'
 require_relative 'lib/filter_remover'
 require_relative 'lib/filter_adder'
 require_relative 'lib/image_generator'
+require_relative 'lib/stegano'
 
 
 if !ARGV[0]
@@ -25,7 +26,7 @@ loop { chunks << Chunk.read(file); pp chunks.last; break if chunks.last.chunk_ty
 image_data = Compressor.inflate(chunks)
 pixels     = FilterRemover.unfilter(image_data, header)
 
-# Stegano class
+# Stegano.embed_text(pixels, "12345")
 
 image_data = FilterAdder.filter(pixels, header)
 compressed = Compressor.deflate(image_data)

@@ -1,7 +1,7 @@
 
 class ImageGenerator
   def self.generate(header, data)
-    output = File.open("#{__dir__}/../img/original.png", "wb")
+    output = File.open("#{__dir__}/../img/output.png", "w")
 
     ## Write PNG signature + IHDR ##
 
